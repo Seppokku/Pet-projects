@@ -15,7 +15,6 @@ contact_name_pattern = re.compile(r'\d\.\d\.\d{0,1}\s{0}')
 
 contract_names = []
 
-job_times = []
 
 for file in excel_files:
      data = pd.read_excel(file)
@@ -24,7 +23,6 @@ for file in excel_files:
          try:
              if j['Unnamed: 35'] > 0:  # если отработанное время не 0, то добавляем имя сот-ка,
                   # рабочие часы по контракту и имя контракта
-                 job_times.append(round(j['Unnamed: 35'], 1))
                  contract_names.append(j['Unnamed: 1'])
          except (KeyError, TypeError, ValueError):
              pass
